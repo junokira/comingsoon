@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>AWAKEN CULT - Coming Soon</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #2B2A2A;
+            background: #121212;
             height: 100vh;
             overflow: hidden;
             display: flex;
@@ -43,7 +43,7 @@
         .social-icons a img {
             width: 30px;
             height: 30px;
-            filter: invert(1); /* Makes the icons white */
+            filter: invert(1); 
         }
 
         .coming-soon {
@@ -80,7 +80,7 @@
         canvas.height = window.innerHeight;
 
         const dvdColors = [
-            "#000000", "#720D82", "#FFD900", "#FF6D00", "#1F3AFF" , "#A49A87" , "#C8102E" , "#3AFF00"
+            "#7E7E7E", "#3AFF00", "#720D82", "#C8102E", "#1F3AFF"
         ];
 
         const logos = [
@@ -90,17 +90,17 @@
             "https://i.ibb.co/YLV1sm9/wee-whte.png"
         ];
 
-        const sizes = [300, 150, 250, 200]; // Individual heights for each logo
+        const sizes = [300, 150, 250, 150]; 
 
         const logo = {
             x: Math.random() * (canvas.width - 225),
             y: Math.random() * (canvas.height - 225),
-            dx: 20, // Keep the speed smooth
-            dy: 20, // Keep the speed smooth
+            dx: 10, 
+            dy: 10, 
             currentImage: new Image(),
             currentColor: dvdColors[0],
             currentLogoIndex: 0,
-            size: sizes[0] // Initial size based on first logo
+            size: sizes[0] 
         };
 
         let preloadedLogos = [];
@@ -123,24 +123,19 @@
             const renderHeight = logo.size;
             const renderWidth = renderHeight * aspectRatio;
 
-            // Prevent overshooting boundaries
-            if (logo.x + renderWidth > canvas.width) logo.x = canvas.width - renderWidth;
-            if (logo.y + renderHeight > canvas.height) logo.y = canvas.height - renderHeight;
-            if (logo.x < 0) logo.x = 0;
-            if (logo.y < 0) logo.y = 0;
+            logo.x = Math.max(0, Math.min(canvas.width - renderWidth, logo.x));
+            logo.y = Math.max(0, Math.min(canvas.height - renderHeight, logo.y));
 
-            // Apply color overlay
             ctx.fillStyle = logo.currentColor;
             ctx.fillRect(logo.x, logo.y, renderWidth, renderHeight);
 
-            // Draw the logo with color applied
             ctx.globalCompositeOperation = "destination-in";
             ctx.drawImage(logo.currentImage, logo.x, logo.y, renderWidth, renderHeight);
             ctx.globalCompositeOperation = "source-over";
         }
 
         function updateLogo() {
-            const delta = 16 / 60; // Time correction for smoother motion
+            const delta = 16 / 60; 
 
             logo.x += logo.dx * delta;
             logo.y += logo.dy * delta;
@@ -148,13 +143,14 @@
             const aspectRatio = logo.currentImage.width / logo.currentImage.height;
             const renderWidth = logo.size * aspectRatio;
 
-            // Reverse direction and change color/logo at boundaries
             if (logo.x + renderWidth >= canvas.width || logo.x <= 0) {
                 logo.dx *= -1;
+                logo.x = Math.max(0, Math.min(canvas.width - renderWidth, logo.x));
                 changeLogoAndColor();
             }
             if (logo.y + logo.size >= canvas.height || logo.y <= 0) {
                 logo.dy *= -1;
+                logo.y = Math.max(0, Math.min(canvas.height - logo.size, logo.y));
                 changeLogoAndColor();
             }
 
@@ -162,15 +158,15 @@
         }
 
         function changeLogoAndColor() {
-            // Cycle to the next logo, color, and size
+          
             logo.currentLogoIndex = (logo.currentLogoIndex + 1) % preloadedLogos.length;
             logo.currentImage = preloadedLogos[logo.currentLogoIndex];
-            logo.size = sizes[logo.currentLogoIndex]; // Update size for current logo
+            logo.size = sizes[logo.currentLogoIndex];
 
             let nextColor;
             do {
                 nextColor = dvdColors[Math.floor(Math.random() * dvdColors.length)];
-            } while (nextColor === logo.currentColor); // Avoid repeating the same color
+            } while (nextColor === logo.currentColor);
 
             logo.currentColor = nextColor;
         }
