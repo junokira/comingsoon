@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWAKEN CULT - Coming Soon</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -57,6 +58,17 @@
             font-size: 24px;
             text-transform: lowercase;
         }
+
+        .footer-text {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 12px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +84,8 @@
         </a>
     </div>
 
+    <div class="footer-text">AWAKEN CULT VISIONS &copy; 2025</div>
+
     <script>
         const canvas = document.getElementById("bouncingLogo");
         const ctx = canvas.getContext("2d");
@@ -85,18 +99,21 @@
 
         const logos = [
             "https://i.ibb.co/kyHVrqd/vzn-white.png",
-            "https://i.ibb.co/jJyDjfB/text-whit.png",
+            "https://i.ibb.co/HK6gRY0/text-whit.png",
             "https://i.ibb.co/XjjjNff/vzn-circle-white.png",
             "https://i.ibb.co/YLV1sm9/wee-whte.png"
         ];
 
-        const sizes = [300, 150, 250, 150]; 
+        const baseSizes = [350, 150, 300, 175]; 
+        let sizes = [...baseSizes];
+
+        const speedFactor = Math.min(window.innerWidth, window.innerHeight) / 800; 
 
         const logo = {
-            x: Math.random() * (canvas.width - 225),
-            y: Math.random() * (canvas.height - 225),
-            dx: 10, 
-            dy: 10, 
+            x: Math.random() * canvas.width * 0.7,
+            y: Math.random() * canvas.height * 0.7,
+            dx: 6 * speedFactor,
+            dy: 6 * speedFactor,
             currentImage: new Image(),
             currentColor: dvdColors[0],
             currentLogoIndex: 0,
@@ -113,10 +130,18 @@
                 return img;
             });
             logo.currentImage = preloadedLogos[logo.currentLogoIndex];
+            adjustSizes();
+        }
+
+        function adjustSizes() {
+            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 1000;
+            sizes = baseSizes.map(size => size * scaleFactor);
+            logo.size = sizes[logo.currentLogoIndex];
         }
 
         function drawLogo() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             if (!logo.currentImage.complete) return;
 
             const aspectRatio = logo.currentImage.width / logo.currentImage.height;
@@ -135,10 +160,8 @@
         }
 
         function updateLogo() {
-            const delta = 16 / 60; 
-
-            logo.x += logo.dx * delta;
-            logo.y += logo.dy * delta;
+            logo.x += logo.dx;
+            logo.y += logo.dy;
 
             const aspectRatio = logo.currentImage.width / logo.currentImage.height;
             const renderWidth = logo.size * aspectRatio;
@@ -158,7 +181,6 @@
         }
 
         function changeLogoAndColor() {
-          
             logo.currentLogoIndex = (logo.currentLogoIndex + 1) % preloadedLogos.length;
             logo.currentImage = preloadedLogos[logo.currentLogoIndex];
             logo.size = sizes[logo.currentLogoIndex];
@@ -179,6 +201,7 @@
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            adjustSizes();
         });
 
         animate();
