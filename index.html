@@ -87,6 +87,7 @@
     <div class="footer-text">AWAKEN CULT VISIONS &copy; 2025</div>
 
     <script>
+        // Created by v0id
         const canvas = document.getElementById("bouncingLogo");
         const ctx = canvas.getContext("2d");
 
@@ -105,15 +106,15 @@
         ];
 
         const baseSizes = [350, 150, 300, 175]; 
-        let sizes = [...baseSizes];
+        let sizes = [...baseSizes]; 
 
         const speedFactor = Math.min(window.innerWidth, window.innerHeight) / 800; 
 
         const logo = {
             x: Math.random() * canvas.width * 0.7,
             y: Math.random() * canvas.height * 0.7,
-            dx: 6 * speedFactor,
-            dy: 6 * speedFactor,
+            dx: 4 * speedFactor, 
+            dy: 4 * speedFactor,
             currentImage: new Image(),
             currentColor: dvdColors[0],
             currentLogoIndex: 0,
@@ -134,9 +135,18 @@
         }
 
         function adjustSizes() {
-            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 1000;
-            sizes = baseSizes.map(size => size * scaleFactor);
+            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 700;
+            const isMobile = window.innerWidth < 600;
+            const minLogoSize = isMobile ? 100 : 150; 
+            const maxScaleFactor = isMobile ? 1.0 : 1.0; 
+
+            sizes = baseSizes.map(size => Math.max(minLogoSize, size * scaleFactor * maxScaleFactor));
             logo.size = sizes[logo.currentLogoIndex];
+
+            
+            const baseSpeed = isMobile ? 2 : 2; 
+            logo.dx = baseSpeed * (window.innerWidth / 800);
+            logo.dy = baseSpeed * (window.innerHeight / 800);
         }
 
         function drawLogo() {
