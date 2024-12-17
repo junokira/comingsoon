@@ -44,7 +44,7 @@
         .social-icons a img {
             width: 30px;
             height: 30px;
-            filter: invert(1); 
+            filter: invert(1); /* Makes the icons white */
         }
 
         .coming-soon {
@@ -105,20 +105,20 @@
             "https://i.ibb.co/YLV1sm9/wee-whte.png"
         ];
 
-        const baseSizes = [350, 150, 300, 175]; 
-        let sizes = [...baseSizes]; 
+        const baseSizes = [350, 150, 300, 175]; // Base sizes for logos
+        let sizes = [...baseSizes]; // Dynamically scaled sizes based on screen size
 
-        const speedFactor = Math.min(window.innerWidth, window.innerHeight) / 800; 
+        const speedFactor = Math.min(window.innerWidth, window.innerHeight) / 800; // Responsive speed
 
         const logo = {
             x: Math.random() * canvas.width * 0.7,
             y: Math.random() * canvas.height * 0.7,
-            dx: 4 * speedFactor, 
+            dx: 4 * speedFactor, // Adjusted speed for desktop
             dy: 4 * speedFactor,
             currentImage: new Image(),
             currentColor: dvdColors[0],
             currentLogoIndex: 0,
-            size: sizes[0] 
+            size: sizes[0] // Scaled size
         };
 
         let preloadedLogos = [];
@@ -135,16 +135,16 @@
         }
 
         function adjustSizes() {
-            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 700;
+            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 800;
             const isMobile = window.innerWidth < 600;
-            const minLogoSize = isMobile ? 100 : 150; 
-            const maxScaleFactor = isMobile ? 1.0 : 1.0; 
+            const minLogoSize = isMobile ? 100 : 150; // Reduce minimum size for mobile
+            const maxScaleFactor = isMobile ? 1.0 : 1.0; // Adjust scaling for mobile/desktop
 
             sizes = baseSizes.map(size => Math.max(minLogoSize, size * scaleFactor * maxScaleFactor));
             logo.size = sizes[logo.currentLogoIndex];
 
-            
-            const baseSpeed = isMobile ? 2 : 2; 
+            // Adjust speed for smoother movement
+            const baseSpeed = isMobile ? 2 : 2; // Slower speed for mobile, balanced for desktop
             logo.dx = baseSpeed * (window.innerWidth / 800);
             logo.dy = baseSpeed * (window.innerHeight / 800);
         }
