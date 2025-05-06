@@ -1,220 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWAKEN CULT - Coming Soon</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWAKEN CULT</title>
 
-        canvas {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="AWAKEN CULT is a global movement blending art, fashion, and music to provoke thought and redefine cultural boundaries." />
+  <meta name="keywords" content="AWAKEN CULT, AWAKEN, art movement, fashion, music, cultural revolution, creative movement, decentralized art" />
+  <meta name="author" content="AWAKEN CULT" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://awakencult.com/" />
 
-        .social-icons {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-        }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="AWAKEN CULT" />
+  <meta property="og:description" content="A global movement blending art, fashion, and music to provoke thought and redefine cultural boundaries." />
+  <meta property="og:image" content="https://awakencult.com/logo.png" />
+  <meta property="og:url" content="https://awakencult.com" />
+  <meta property="og:type" content="website" />
 
-        .social-icons a {
-            text-decoration: none;
-            font-size: 24px;
-        }
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AWAKEN CULT" />
+  <meta name="twitter:description" content="A global creative movement disrupting culture through art, fashion, and sound." />
+  <meta name="twitter:image" content="https://awakencult.com/logo.png" />
 
-        .social-icons a img {
-            width: 30px;
-            height: 30px;
-            filter: invert(1); /* Makes the icons white */
-        }
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="AWAKEN" />
+  <meta name="theme-color" content="#121212" />
 
-        .coming-soon {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-family: "Helvetica", Arial, sans-serif;
-            font-weight: bold;
-            font-size: 24px;
-            text-transform: lowercase;
-        }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
-        .footer-text {
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            font-family: "Helvetica", Arial, sans-serif;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-    </style>
+    canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .social-icons {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+      filter: invert(1);
+    }
+
+    .coming-soon {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-family: "Helvetica", Arial, sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+      text-transform: lowercase;
+    }
+
+    .footer-text {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: "Helvetica", Arial, sans-serif;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1 class="visually-hidden">AWAKEN CULT — A Global Movement Blending Art, Fashion, and Music</h1>
+  </header>
+
+  <main role="main">
     <div class="coming-soon">coming soon</div>
-    <canvas id="bouncingLogo"></canvas>
+    <canvas id="bouncingLogo" aria-label="Animated bouncing AWAKEN logos"></canvas>
 
-    <div class="social-icons">
-        <a href="https://instagram.com/awakencult" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
-        </a>
-        <a href="http://x.com/awakencult" target="_blank">
-            <img src="https://cdn0.iconfinder.com/data/icons/social-network-flat-4/512/x_icon-512.png" alt="X">
-        </a>
+    <div class="social-icons" aria-label="Social Media Links">
+      <a href="https://instagram.com/awakencult" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram logo">
+      </a>
+      <a href="https://x.com/awakencult" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+        <img src="https://cdn0.iconfinder.com/data/icons/social-network-flat-4/512/x_icon-512.png" alt="X logo">
+      </a>
+      <a href="https://www.youtube.com/@awakencult" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube logo">
+      </a>
     </div>
+  </main>
 
+  <footer>
     <div class="footer-text">AWAKEN CULT VISIONS &copy; 2025</div>
+  </footer>
 
-    <script>
-        // Created by v0id
-        const canvas = document.getElementById("bouncingLogo");
-        const ctx = canvas.getContext("2d");
+  <script>
+    const canvas = document.getElementById("bouncingLogo");
+    const ctx = canvas.getContext("2d");
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    const dvdColors = ["#7E7E7E", "#3AFF00", "#720D82", "#C8102E", "#1F3AFF"];
+    const logoData = [
+      { id: "eye", url: "https://i.ibb.co/R49Dxwg7/NEW-EYE-LOGO-WHITE-VEC.png", size: 250 },
+      { id: "text", url: "https://i.ibb.co/HK6gRY0/text-whit.png", size: 170 },
+      { id: "circle", url: "https://i.ibb.co/BHVd9DLB/vzn-circle-white-vec.png", size: 325 },
+      { id: "wave", url: "https://i.ibb.co/YLV1sm9/wee-whte.png", size: 180 }
+    ];
 
-        const dvdColors = [
-            "#7E7E7E", "#3AFF00", "#720D82", "#C8102E", "#1F3AFF"
-        ];
+    let preloadedLogos = [];
+    const logo = {
+      x: 100, y: 100, dx: 2, dy: 2,
+      size: 150, currentImage: null,
+      currentColor: dvdColors[0], currentLogoIndex: 0
+    };
 
-        const logos = [
-            "https://i.ibb.co/kyHVrqd/vzn-white.png",
-            "https://i.ibb.co/HK6gRY0/text-whit.png",
-            "https://i.ibb.co/XjjjNff/vzn-circle-white.png",
-            "https://i.ibb.co/YLV1sm9/wee-whte.png"
-        ];
+    function setCanvasSize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
 
-        const baseSizes = [350, 150, 300, 175]; // Base sizes for logos
-        let sizes = [...baseSizes]; // Dynamically scaled sizes based on screen size
+    function adjustSize(baseSize) {
+      const factor = Math.min(window.innerWidth, window.innerHeight) / 800;
+      return Math.max(100, baseSize * factor);
+    }
 
-        const speedFactor = Math.min(window.innerWidth, window.innerHeight) / 800; // Responsive speed
-
-        const logo = {
-            x: Math.random() * canvas.width * 0.7,
-            y: Math.random() * canvas.height * 0.7,
-            dx: 4 * speedFactor, // Adjusted speed for desktop
-            dy: 4 * speedFactor,
-            currentImage: new Image(),
-            currentColor: dvdColors[0],
-            currentLogoIndex: 0,
-            size: sizes[0] // Scaled size
+    function preloadImages() {
+      let loaded = 0;
+      preloadedLogos = logoData.map((data) => {
+        const img = new Image();
+        img.onload = () => {
+          if (++loaded === logoData.length) {
+            updateCurrentLogo(0);
+            animate();
+          }
         };
+        img.src = data.url;
+        return { ...data, image: img };
+      });
+    }
 
-        let preloadedLogos = [];
-        preloadImages();
+    function updateCurrentLogo(index) {
+      const data = preloadedLogos[index];
+      logo.currentLogoIndex = index;
+      logo.currentImage = data.image;
+      logo.size = adjustSize(data.size);
+    }
 
-        function preloadImages() {
-            preloadedLogos = logos.map(src => {
-                const img = new Image();
-                img.src = src;
-                return img;
-            });
-            logo.currentImage = preloadedLogos[logo.currentLogoIndex];
-            adjustSizes();
-        }
+    function drawLogo() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!logo.currentImage?.complete || logo.currentImage.naturalWidth === 0) return;
 
-        function adjustSizes() {
-            const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 800;
-            const isMobile = window.innerWidth < 600;
-            const minLogoSize = isMobile ? 100 : 150; // Reduce minimum size for mobile
-            const maxScaleFactor = isMobile ? 1.0 : 1.0; // Adjust scaling for mobile/desktop
+      const aspectRatio = logo.currentImage.width / logo.currentImage.height;
+      const renderHeight = logo.size;
+      const renderWidth = renderHeight * aspectRatio;
 
-            sizes = baseSizes.map(size => Math.max(minLogoSize, size * scaleFactor * maxScaleFactor));
-            logo.size = sizes[logo.currentLogoIndex];
+      ctx.fillStyle = logo.currentColor;
+      ctx.fillRect(logo.x, logo.y, renderWidth, renderHeight);
 
-            // Adjust speed for smoother movement
-            const baseSpeed = isMobile ? 2 : 2; // Slower speed for mobile, balanced for desktop
-            logo.dx = baseSpeed * (window.innerWidth / 800);
-            logo.dy = baseSpeed * (window.innerHeight / 800);
-        }
+      ctx.globalCompositeOperation = "destination-in";
+      ctx.drawImage(logo.currentImage, logo.x, logo.y, renderWidth, renderHeight);
+      ctx.globalCompositeOperation = "source-over";
+    }
 
-        function drawLogo() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function updateLogo() {
+      const aspectRatio = logo.currentImage.width / logo.currentImage.height;
+      const renderWidth = logo.size * aspectRatio;
+      const renderHeight = logo.size;
 
-            if (!logo.currentImage.complete) return;
+      logo.x += logo.dx;
+      logo.y += logo.dy;
 
-            const aspectRatio = logo.currentImage.width / logo.currentImage.height;
-            const renderHeight = logo.size;
-            const renderWidth = renderHeight * aspectRatio;
+      let bounced = false;
+      if (logo.x + renderWidth >= canvas.width || logo.x <= 0) {
+        logo.dx *= -1;
+        bounced = true;
+      }
+      if (logo.y + renderHeight >= canvas.height || logo.y <= 0) {
+        logo.dy *= -1;
+        bounced = true;
+      }
 
-            logo.x = Math.max(0, Math.min(canvas.width - renderWidth, logo.x));
-            logo.y = Math.max(0, Math.min(canvas.height - renderHeight, logo.y));
+      if (bounced) changeLogoAndColor();
+      drawLogo();
+    }
 
-            ctx.fillStyle = logo.currentColor;
-            ctx.fillRect(logo.x, logo.y, renderWidth, renderHeight);
+    function changeLogoAndColor() {
+      const nextIndex = (logo.currentLogoIndex + 1) % preloadedLogos.length;
+      const nextData = preloadedLogos[nextIndex];
 
-            ctx.globalCompositeOperation = "destination-in";
-            ctx.drawImage(logo.currentImage, logo.x, logo.y, renderWidth, renderHeight);
-            ctx.globalCompositeOperation = "source-over";
-        }
+      if (nextData.image.complete && nextData.image.naturalWidth > 0) {
+        logo.currentLogoIndex = nextIndex;
+        logo.currentImage = nextData.image;
+        logo.size = adjustSize(nextData.size);
 
-        function updateLogo() {
-            logo.x += logo.dx;
-            logo.y += logo.dy;
+        const aspectRatio = logo.currentImage.width / logo.currentImage.height;
+        const renderWidth = logo.size * aspectRatio;
+        const renderHeight = logo.size;
 
-            const aspectRatio = logo.currentImage.width / logo.currentImage.height;
-            const renderWidth = logo.size * aspectRatio;
+        if (logo.x + renderWidth > canvas.width) logo.x = canvas.width - renderWidth - 1;
+        if (logo.y + renderHeight > canvas.height) logo.y = canvas.height - renderHeight - 1;
 
-            if (logo.x + renderWidth >= canvas.width || logo.x <= 0) {
-                logo.dx *= -1;
-                logo.x = Math.max(0, Math.min(canvas.width - renderWidth, logo.x));
-                changeLogoAndColor();
-            }
-            if (logo.y + logo.size >= canvas.height || logo.y <= 0) {
-                logo.dy *= -1;
-                logo.y = Math.max(0, Math.min(canvas.height - logo.size, logo.y));
-                changeLogoAndColor();
-            }
+        let nextColor;
+        do {
+          nextColor = dvdColors[Math.floor(Math.random() * dvdColors.length)];
+        } while (nextColor === logo.currentColor);
 
-            drawLogo();
-        }
+        logo.currentColor = nextColor;
+      } else {
+        setTimeout(changeLogoAndColor, 50);
+      }
+    }
 
-        function changeLogoAndColor() {
-            logo.currentLogoIndex = (logo.currentLogoIndex + 1) % preloadedLogos.length;
-            logo.currentImage = preloadedLogos[logo.currentLogoIndex];
-            logo.size = sizes[logo.currentLogoIndex];
+    function animate() {
+      updateLogo();
+      requestAnimationFrame(animate);
+    }
 
-            let nextColor;
-            do {
-                nextColor = dvdColors[Math.floor(Math.random() * dvdColors.length)];
-            } while (nextColor === logo.currentColor);
+    window.addEventListener("resize", () => {
+      setCanvasSize();
+      updateCurrentLogo(logo.currentLogoIndex);
+    });
 
-            logo.currentColor = nextColor;
-        }
+    function init() {
+      setCanvasSize();
+      preloadImages();
+    }
 
-        function animate() {
-            updateLogo();
-            requestAnimationFrame(animate);
-        }
+    init();
+  </script>
 
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            adjustSizes();
-        });
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Movement",
+    "name": "AWAKEN CULT",
+    "alternateName": "AWAKEN",
+    "url": "https://awakencult.com",
+    "logo": "https://awakencult.com/logo.png",
+    "foundingDate": "2016",
+    "description": "AWAKEN CULT is a global movement blending art, fashion, and music to provoke thought and redefine cultural boundaries.",
+    "sameAs": [
+      "https://www.instagram.com/awakencult",
+      "https://www.youtube.com/@awakencult",
+      "https://twitter.com/awakencult"
+    ]
+  }
+  </script>
 
-        animate();
-    </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://awakencult.com/",
+    "name": "AWAKEN CULT",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://awakencult.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </body>
 </html>
